@@ -18,10 +18,13 @@ public class SnakeAndLadder {
 		Random random = new Random();
 		while (positionCount < 100) {
 			int dice = random.nextInt(6) + 1;
-
 			checkOption = random.nextInt(3);
 			if (checkOption == LADDER) {
+				int check100 = positionCount;
 				positionCount += dice;
+				if (positionCount > 100) {
+					positionCount = check100;
+				}
 			} else if (checkOption == NOPLAY) {
 			} else {
 				positionCount -= dice;
